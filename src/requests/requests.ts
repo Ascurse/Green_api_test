@@ -74,11 +74,9 @@ export async function fetchSettings(idInstance: string, apiTokenInstance: string
 
 	try {
 		const response = await axios.post<SettingsData>(url);
-		console.log(response.data);
 		return response.data;
 	} catch (error) {
 		console.error(error);
-		throw error;
 	}
 }
 
@@ -97,7 +95,6 @@ export async function setSettings(idInstance: string, apiTokenInstance: string):
 		return response.data;
 	} catch (error) {
 		console.error(error);
-		throw error;
 	}
 }
 
@@ -109,7 +106,6 @@ export async function fetchStatus(idInstance: string, apiTokenInstance: string):
 		return response.data;
 	} catch (error) {
 		console.error(error);
-		throw error;
 	}
 }
 
@@ -122,7 +118,6 @@ export async function receiveNotification(idInstance: string, apiTokenInstance: 
 		return response.data;
 	} catch (error) {
 		console.error(error);
-		throw error;
 	}
 }
 
@@ -139,7 +134,6 @@ export async function postMessage(idInstance: string, apiTokenInstance: string, 
 		return response.data;
 	} catch (error) {
 		console.error(error);
-		throw error;
 	}
 }
 
@@ -155,6 +149,5 @@ export async function deleteNotification(idInstance: string, apiTokenInstance: s
 		return response.data.result;
 	} catch (error) {
 		console.error(error);
-		throw error;
 	}
 }

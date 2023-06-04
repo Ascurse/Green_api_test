@@ -24,7 +24,6 @@ export default function MessageInput({setMessages}: Props) {
 
 	const handleSendMessage = async () => {
 		if (message.trim() !== '') {
-			console.log('Sending message:', message);
 			await postMessage(idInstance, apiTokenInstance, formattedNumber, message);
 			setMessages(prevMessages => [
 				...prevMessages,

@@ -6,7 +6,7 @@ import Header from '../../blocks/Header/Header';
 import {AuthContext} from '../../store/AuthStore';
 import EnterMobile from '../../blocks/EnterMobile/EnterMobile';
 import MessageInput from '../../components/MessageInput/MessageInput';
-import {deleteNotification, receiveNotification, type TextMessageData} from '../../requests/requests';
+import {deleteNotification, receiveNotification} from '../../requests/requests';
 
 export type Message = {
 	chatId: string;
@@ -15,7 +15,7 @@ export type Message = {
 };
 
 function Chat() {
-	const {isLogin, handleIsLoginChange, mobileNumber, idInstance, apiTokenInstance, formattedNumber} = useContext(AuthContext);
+	const {isLogin, mobileNumber, idInstance, apiTokenInstance, formattedNumber} = useContext(AuthContext);
 	const [messages, setMessages] = useState<Message[]>([]);
 	const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 	const modalRef = useRef<HTMLDivElement>(null);
@@ -66,17 +66,12 @@ function Chat() {
 			);
 			if (notification) {
 				const {body, receiptId} = notification;
-				console.log(body);
-				console.log(body.typeWebhook);
 				if (
 					body.typeWebhook === 'incomingMessageReceived'
 				) {
 					const {chatId} = body.senderData;
-					console.log(chatId);
-					console.log(formattedNumberRef.current);
 					if (chatId === formattedNumberRef.current) {
 						const message = body.messageData.textMessageData.textMessage;
-						console.log(body.messageData);
 						setMessages((prevMessages: Message[]) => [
 							...prevMessages,
 							{
@@ -86,8 +81,6 @@ function Chat() {
 							},
 						]);
 					}
-
-					console.log(messages);
 				}
 
 				await deleteNotification(idInstance, apiTokenInstance, receiptId);
@@ -106,10 +99,6 @@ function Chat() {
 			clearInterval(interval);
 		};
 	}, []);
-
-	useEffect(() => {
-		console.log(messages);
-	}, [messages]);
 
 	if (!isLogin) {
 		return <Navigate to='/' />;
