@@ -1,7 +1,6 @@
 import React from 'react';
 import {Routes, Route} from 'react-router-dom';
 import {AuthProvider} from './store/AuthStore';
-import './App.scss';
 import Home from './pages/Home/Home';
 import Chat from './pages/Chat/Chat';
 
