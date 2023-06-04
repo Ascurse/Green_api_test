@@ -1,0 +1,32 @@
+.home {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #87BF67;
+
+    &__nav {
+        box-sizing: border-box;
+        width: 100%;
+        height: 4.3125rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        padding: 1.25rem;
+        background: #D9FDD4;
+    }
+
+    &__login {
+        background: #141414;
+        color: #fff;
+        cursor: pointer;
+        width: 12.5rem;
+    }
+
+    &__logo {
+        width: 49.5rem;
+        height: 43.0625rem;
+        align-self: center;
+    }
+}

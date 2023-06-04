@@ -1,0 +1,34 @@
+.chat {
+    background: #EFEAE2;
+    height: 100vh;
+
+    &__messages {
+        box-sizing: border-box;
+        height: 84%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        overflow: scroll;
+        padding: 1.25rem;
+    }
+
+    &__message {
+        box-sizing: border-box;
+        width: 28.6788rem;
+        min-height: 5.195rem;
+        border-radius: 15px;
+        padding: 1.25rem;
+        margin-bottom: 0.3125rem;
+    }
+}
+
+.sent {
+    background: #D9FDD4;
+    align-self: flex-end;
+}
+
+.received {
+    background: #FEFEFE;
+    align-self: flex-start;
+}
