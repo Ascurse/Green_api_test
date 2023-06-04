@@ -42,6 +42,11 @@
             margin-right: 0;
         }
 
+        @media screen and (max-width: $breakpoint-medium) {
+            width: 9rem;
+            font-size: 0.67rem;
+        }
+
         @media screen and (max-width: $breakpoint-small) {
             width: 7rem;
             font-size: 0.37rem;

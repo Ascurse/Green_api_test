@@ -57,7 +57,7 @@ export default function MessageInput({setMessages}: Props) {
 				onClick={handleSendMessage}
 				className={classNames(classes['message-input__btn'])}
 			>
-                Отправить
+				<span className={classNames(classes['message-input__btn-icon'])} />
 			</button>
 		</div>
 	);
